@@ -18,9 +18,13 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
-from django.urls import path
-from accounts.views import homepage
+from django.urls import path, include
+from . import views
 
-urlpatterns = [path("admin/", admin.site.urls), path("", homepage, name="home")]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", views.homepage, name="home"),
+    path("store/", include("store.urls")),
+]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

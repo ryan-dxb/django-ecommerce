@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 
 class Category(models.Model):
@@ -12,6 +13,9 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
         verbose_name = "Category"
+
+    def get_url(self):
+        return reverse("store_by_category", kwargs={"category_slug": self.slug})
 
     def __str__(self):
         return self.category_name

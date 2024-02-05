@@ -40,6 +40,7 @@ DJANGO_APPS = [
 PROJECT_APPS = [
     "category.apps.CategoryConfig",
     "accounts.apps.AccountsConfig",
+    "store.apps.StoreConfig",
 ]
 
 THIRD_PARTY_APPS = []
@@ -69,6 +70,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "category.context_processors.menu_links",
             ],
         },
     },
